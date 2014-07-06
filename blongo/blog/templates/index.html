@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="{{STATIC_URL}}blog.css" rel="stylesheet" type="text/css">
+  </head> 
+  <body>
+    <h1>Blongo</h1>
+    <a href="/add">add a new blog</a>
+<!-- Cycle through entries -->
+<div>
+    {% for post in Posts %}
+      <h2> {{ post.title }} </h2>
+      <p>{{ post.last_update }}</p>
+      <p>{{ post.content }}</p>
+      {% if not right  %}
+      <form method="get" action="http://127.0.0.1:8000/update">
+        <input type="hidden" name="id" value="{{ post.id }}">
+        <input type="submit" name="" value="update">
+      </form>
+      {% endif %}
+      <form method="get" action="http://127.0.0.1:8000/delete">
+        <input type="hidden" name="id" value="{{post.id}}">
+        <input type="submit" value="delete">
+      </form>
+    {% endfor %}
+</div>   
+  </body>
+</html>
