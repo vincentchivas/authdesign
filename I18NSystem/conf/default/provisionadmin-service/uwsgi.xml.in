@@ -1,0 +1,19 @@
+<!-- 
+ author:kunli
+ date:2011-03-30
+ email:kunli@bainainfo.com-->
+<uwsgi>
+    <socket>%(#provisionadmin-service-group.ip)s:%(#provisionadmin-service-group.http_port)s</socket>
+    <env>DJANGO_SETTINGS_MODULE=provisionadmin.settings</env>
+    <module>django.core.handlers.wsgi:WSGIHandler()</module>
+    <processes>4</processes>
+    <master/>
+    <master-as-root />
+    <enable-threads />
+    <!-- request timeout -->
+    <harakiri>60</harakiri>
+    <buffer-size>25000</buffer-size>
+    <daemonize>%(log_dir_base)s/provisionadmin-service/uwsgi.log</daemonize>
+    <listen>1000</listen>
+    <stats>127.0.0.1:18086</stats>
+</uwsgi>
