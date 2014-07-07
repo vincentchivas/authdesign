@@ -1,0 +1,7 @@
+db 数据连接层 eg:user.py
+model 存放各种model eg:user.py
+service 存放直接面向用户的服务，主要有urls.py views存放各种直接相应前端的方法 utils通用的一些方法
+utils 项目通用的方法
+decorator 装饰器
+settings 配置
+
