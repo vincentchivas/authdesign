@@ -1,5 +1,6 @@
 class AuthUser:
-    def __init__(self,name,password,email=None,is_active=True,is_superuser=False ,groupid=None,permissionIds=None):
+    def __init__(self,id,name,password,email=None,is_active=True,is_superuser=False ,groupid=None,permissionIds=None):
+        self.id=id
         self.name=name
         self.password=password
         self.email=email
