@@ -20,18 +20,18 @@ def delete(model):
     collectname=model.__class__.__name__
     dict_data=model.__dict__
     collection=db[collectname]
-    collection.remove(model.id)
+    collection.remove(model._id)
 
-def insert(model):      
+
+def save(model):
     collectname=model.__class__.__name__
     dict_data=model.__dict__
     collection=db[collectname]
-    dict_data['_id']=getid(collectname+'ids')
-    collection.insert(dict_data)
-
-def update(model):
-    collectname=model.__class__.__name__
-    dict_data=model.__dict__
-    collection=db[collectname]
-    collection.update({'_id':model.id},{'$set':dict_data)
-
+    item=collection.find_one({'_id':model._id})
+    if item == None:
+        dict_data['_id']=getid(collectname+'ids')
+        collection.insert(dict_data)
+    else:
+        id=dict_data['_id']
+        dict_data.pop('_id')
+        collection.update({'_id':id},{'$set':dict_data})       
