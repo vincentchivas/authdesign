@@ -1,0 +1,6 @@
+global-include *.cfg *.xml *.jar
+graft scripts
+graft dolphinopadmin/templates
+graft dolphinopadmin/static
+graft dolphinopadmin/web/templates
+graft dolphinopadmin/locale

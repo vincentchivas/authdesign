@@ -16,7 +16,7 @@ def login(request):
         userexist=AuthUser.get(username=name,password=password)
         if userexist:
             request.session['userid']=userexist.id
-            request.session['sessionkey']=Session.generate() #generate a key and stort it in database
+            #request.session['sessionkey']=Session.generate() #generate a key and stort it in database
          else:
                 response.redirect('login.html')
 
